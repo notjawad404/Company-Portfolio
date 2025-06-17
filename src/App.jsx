@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Home from "./Pages/Home";
 import ServicePage from "./Pages/ServicePage";
 import Outsourcing from "./Pages/OutSourcing";
+import HRManagement from "./Pages/HrManagment";
 
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/services" element={<ServicePage/>} />
         <Route path="/services/outsourcing" element={<Outsourcing />} />
-        {/* <Route path="/services/hr-management" element={<HRManagement />} /> */}
+        <Route path="/services/hr-management" element={<HRManagement />} />
       </Routes>
     </BrowserRouter>
   )
