@@ -48,7 +48,7 @@ const About = () => {
       <div className="grid md:grid-cols-2 gap-14 items-center">
         <div>
           <img
-            src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b6?auto=format&fit=crop&w=800&q=80"
+            src="https://t3.ftcdn.net/jpg/03/01/48/18/360_F_301481839_p4RvuPBeFTeNvDXyl2ez822gZhQ7ZWEF.jpg"
             alt="Team"
             className="w-full h-[400px] object-cover rounded-xl shadow-lg"
           />

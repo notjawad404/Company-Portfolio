@@ -7,6 +7,7 @@ import Outsourcing from "./Pages/OutSourcing";
 import HRManagement from "./Pages/HrManagment";
 import About from "./Pages/AboutPage";
 import Contact from "./Pages/ContactPage";
+import Footer from "./components/footer";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/services/outsourcing" element={<Outsourcing />} />
         <Route path="/services/hr-management" element={<HRManagement />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }
