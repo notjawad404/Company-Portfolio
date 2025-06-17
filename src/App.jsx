@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import ServicePage from "./Pages/ServicePage";
 import Outsourcing from "./Pages/OutSourcing";
 import HRManagement from "./Pages/HrManagment";
+import About from "./Pages/AboutPage";
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>}/>
         <Route path="/services" element={<ServicePage/>} />
         <Route path="/services/outsourcing" element={<Outsourcing />} />
         <Route path="/services/hr-management" element={<HRManagement />} />
