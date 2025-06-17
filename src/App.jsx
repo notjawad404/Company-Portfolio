@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import ServicePage from "./Pages/ServicePage";
 import Outsourcing from "./Pages/OutSourcing";
