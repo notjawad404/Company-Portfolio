@@ -17,7 +17,7 @@ const hrTabs = [
         "Benefits and leave tracking",
         "Labor law compliance"
       ],
-      image: "https://images.unsplash.com/photo-1581092334431-224c3a6b424c?auto=format&fit=crop&w=800&q=80"
+      image: "https://www.china-briefing.com/news/wp-content/uploads/2021/05/Leveraging-Technology-to-Improve-HR-and-Payroll-Management-in-China.jpg"
     }
   },
   {
@@ -34,7 +34,7 @@ const hrTabs = [
         "Onboarding support",
         "Hiring analytics"
       ],
-      image: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b6?auto=format&fit=crop&w=800&q=80"
+      image: "https://hrone.cloud/wp-content/uploads/2021/03/Recruitment-VS-Talent-1.jpg"
     }
   }
 ];
