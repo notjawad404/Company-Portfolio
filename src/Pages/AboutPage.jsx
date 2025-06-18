@@ -20,7 +20,7 @@ const features = [
 
 const servicesOverview = [
   {
-    icon: <FaRegHandshake/>,
+    icon: <FaRegHandshake />,
     title: "OutSourcing",
     description: "We offer expert outsourcing services including operations management, sales, and customer support to help you reduce cost and focus on growth."
   },
@@ -36,13 +36,39 @@ const About = () => {
   return (
     <section className="px-4 py-20 container mx-auto space-y-24">
 
-      {/* Header Section */}
-      <div className="text-center max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-violet-700 mb-4">About Us</h1>
-        <p className="text-lg text-gray-700 leading-8">
-          We are a dynamic team of professionals committed to delivering exceptional technology outsourcing and HR services. Our mission is to simplify business processes, optimize performance, and foster sustainable growth for our clients.
-        </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div>
+            <h1 className="text-4xl font-bold text-violet-700 mb-6">
+              About Us
+            </h1>
+            <p className="text-lg text-gray-700 mb-5 leading-relaxed">
+              We are a passionate team of technology and HR professionals dedicated to helping businesses grow smarter. With deep industry expertise and a client-first mindset, we specialize in delivering top-notch outsourcing and HR management solutions tailored to your unique needs.
+            </p>
+
+            <h2 className="text-xl font-semibold text-gray-800 mb-3">
+              Why Choose Us?
+            </h2>
+            <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
+              <li>Tailored strategies to match your business goals</li>
+              <li>Seamless integration with your existing workflows</li>
+              <li>Proven track record of boosting efficiency and reducing costs</li>
+            </ul>
+          </div>
+
+          {/* Image */}
+          <div className="flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=700&q=80"
+              alt="Team Working"
+              className="rounded-xl shadow-lg w-full max-w-md"
+            />
+          </div>
+        </div>
       </div>
+
+
 
       {/* Mission & Vision */}
       <div className="grid md:grid-cols-2 gap-14 items-center">
@@ -55,10 +81,10 @@ const About = () => {
         </div>
         <div>
           <h2 className="text-2xl font-bold text-violet-700 mb-4">Our Mission & Vision</h2>
-          <p className="text-gray-700 mb-4 leading-7">
-            Our mission is to become a trusted partner for businesses looking to enhance productivity through tech-driven outsourcing and people-first HR services.
+          <p className="text-lg text-gray-700 mb-5 leading-relaxed">
+            Our mission is to simplify complex business processes, streamline operations, and empower organizations to achieve sustainable success. Whether it's managing your day-to-day operations, enhancing customer experience, or driving HR excellence — we provide scalable, cost-effective solutions that allow you to focus on what matters most: your core business.
           </p>
-          <p className="text-gray-700 leading-7">
+          <p className=" text-lg text-gray-700 leading-7">
             We envision a future where companies focus on their core strengths while we handle the rest — with innovation, precision, and care.
           </p>
         </div>
