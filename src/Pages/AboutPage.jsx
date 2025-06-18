@@ -60,7 +60,7 @@ const About = () => {
           {/* Image */}
           <div className="flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=700&q=80"
+              src="https://t3.ftcdn.net/jpg/03/01/48/18/360_F_301481839_p4RvuPBeFTeNvDXyl2ez822gZhQ7ZWEF.jpg"
               alt="Team Working"
               className="rounded-xl shadow-lg w-full max-w-md"
             />
@@ -74,7 +74,7 @@ const About = () => {
       <div className="grid md:grid-cols-2 gap-14 items-center">
         <div>
           <img
-            src="https://t3.ftcdn.net/jpg/03/01/48/18/360_F_301481839_p4RvuPBeFTeNvDXyl2ez822gZhQ7ZWEF.jpg"
+            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=700&q=80"
             alt="Team"
             className="w-full h-[400px] object-cover rounded-xl shadow-lg"
           />
