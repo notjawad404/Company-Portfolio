@@ -9,7 +9,7 @@ class Footer extends Component {
         <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3 text-gray-700">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold text-violet-700 mb-4">LOGO</h3>
+            <h3 className="text-2xl font-bold text-violet-700 mb-4">Triage Solutions</h3>
             <p className="mb-4">
               We are committed to delivering innovative solutions in outsourcing
               and HR management, helping your business grow through smart and
@@ -56,16 +56,19 @@ class Footer extends Component {
             <h3 className="text-xl font-semibold text-violet-700 mb-4">Contact</h3>
             <ul className="space-y-2">
               <li>
-                <p>Lahore, Pakistan</p>
-              </li>
-              <li>
-                <a href="tel:+923001234567" className="hover:text-violet-600">
-                  Phone: +92 300 1234567
-                </a>
-              </li>
-              <li>
-                <a href="mailto:info@yourcompany.com" className="hover:text-violet-600">
-                  Email: info@yourcompany.com
+                <p>Capital plaza G11 markaz islamabad</p>
+                </li>
+                <li>
+                  <a href="tel:+923445927011" className="hover:text-violet-600 block">
+                    Office: +92 344 5927011
+                  </a>
+                  <a href="tel:+923135009276" className="hover:text-violet-600 block">
+                    Mobile: +92 313 5009276
+                  </a>
+                </li>
+                <li>
+                <a href="mailto:info@triagesolutions.org" className="hover:text-violet-600">
+                  Email: info@triagesolutions.org
                 </a>
               </li>
             </ul>

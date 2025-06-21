@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaMobileAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
     const form = useRef();
@@ -34,24 +34,49 @@ const Contact = () => {
                 Contact Us
             </h1>
 
-            {/* Top Contact Info */}
-            <div className="grid md:grid-cols-3 gap-6 text-center mb-16">
-                <div className="bg-white shadow-md p-6 rounded-lg">
-                    <FaPhoneAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
-                    <h4 className="text-xl font-semibold mb-1">Phone</h4>
-                    <p className="text-gray-600">+92 300 1234567</p>
-                </div>
-                <div className="bg-white shadow-md p-6 rounded-lg">
-                    <FaEnvelope className="text-3xl text-violet-700 mb-2 mx-auto" />
-                    <h4 className="text-xl font-semibold mb-1">Email</h4>
-                    <p className="text-gray-600">info@yourcompany.com</p>
-                </div>
-                <div className="bg-white shadow-md p-6 rounded-lg">
-                    <FaMapMarkerAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
-                    <h4 className="text-xl font-semibold mb-1">Location</h4>
-                    <p className="text-gray-600">Lahore, Pakistan</p>
-                </div>
-            </div>
+{/* Top Contact Info */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
+  {/* Office Phone */}
+  <div className="bg-white shadow-md p-6 rounded-lg">
+    <FaPhoneAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <h4 className="text-xl font-semibold mb-1">Office</h4>
+    <p className="text-gray-600">
+      <a href="tel:+923445927011" className="hover:text-violet-600">
+        +92 344 5927011
+      </a>
+    </p>
+  </div>
+
+  {/* Mobile Phone */}
+  <div className="bg-white shadow-md p-6 rounded-lg">
+    <FaMobileAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <h4 className="text-xl font-semibold mb-1">Mobile</h4>
+    <p className="text-gray-600">
+      <a href="tel:+923135009276" className="hover:text-violet-600">
+        +92 313 5009276
+      </a>
+    </p>
+  </div>
+
+  {/* Email */}
+  <div className="bg-white shadow-md p-6 rounded-lg">
+    <FaEnvelope className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <h4 className="text-xl font-semibold mb-1">Email</h4>
+    <p className="text-gray-600">
+      <a href="mailto:info@triagesolutions.org" className="hover:text-violet-600">
+        info@triagesolutions.org
+      </a>
+    </p>
+  </div>
+
+  {/* Location */}
+  <div className="bg-white shadow-md p-6 rounded-lg">
+    <FaMapMarkerAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <h4 className="text-xl font-semibold mb-1">Location</h4>
+    <p className="text-gray-600">Islamabad, Pakistan</p>
+  </div>
+</div>
+
 
             {/* Contact Form and Map */}
             <div className="grid md:grid-cols-2 gap-10">
@@ -114,15 +139,18 @@ const Contact = () => {
                 {/* Google Maps */}
                 <div className="overflow-hidden rounded-lg shadow-lg">
                     <iframe
-                        title="Our Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27215.25752467979!2d74.30184710827918!3d31.52036906009365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904dd4e6bd9c9%3A0xa34d8820fc2e54b7!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1718649269054!5m2!1sen!2s"
+                        title="Capital Plaza Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.6197255389575!2d72.99509597516005!3d33.66701393797431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95feea6c12ef%3A0xe6103b04f52ee517!2sCapital%20Plaza!5e0!3m2!1sen!2sus!4v1750529755229!5m2!1sen!2sus"
                         width="100%"
                         height="450"
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         className="w-full h-full border-0"
-                    ></iframe>
+                    />
+
+
+
                 </div>
             </div>
         </section>
