@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { FaUserTie, FaMoneyCheckAlt, FaUsers } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const hrTabs = [
   {
     key: "payroll",
     title: "Payroll",
-    icon: <FaMoneyCheckAlt />,
+    icon: FaMoneyCheckAlt,
     content: {
       heading: "HR/Payroll Management Services",
       text: "Streamline your human resources operations with our HR and payroll management services. We offer employee record management, payroll processing, compliance with labor laws, and benefits administration, all tailored to your organization's needs.",
@@ -23,7 +23,7 @@ const hrTabs = [
   {
     key: "recruitment",
     title: "Recruitment",
-    icon: <FaUsers />,
+    icon: FaUsers,
     content: {
       heading: "Recruitment & Talent Acquisition",
       text: "Build a high-performing team with our expert recruitment services. We provide end-to-end hiring support including sourcing, screening, interviewing, and onboarding top talent tailored to your company’s goals.",
@@ -41,66 +41,74 @@ const hrTabs = [
 
 const HRManagement = () => {
   const [activeTab, setActiveTab] = useState("payroll");
-  const tabContent = hrTabs.find((tab) => tab.key === activeTab)?.content;
+  const activeContent = hrTabs.find((tab) => tab.key === activeTab);
 
   return (
-    <section className="container mx-auto px-4 py-20">
-      {/* Page Header */}
-      <div className="text-center mb-12 max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-violet-700 mb-4">HR Management Services</h1>
-        <p className="text-gray-700 text-lg leading-7">
-          Efficient and reliable HR solutions to power your organization’s growth. Explore our services below tailored for modern workforce management.
+    <div className="container mx-auto px-4 py-16">
+      {/* === Page Header === */}
+      <div className="text-center mb-14">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">HR Management Services</h1>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Efficient and reliable HR solutions to power your organization’s growth. Explore our services tailored for modern workforce management.
         </p>
       </div>
 
-      {/* Tabs */}
-      <div className="flex justify-center gap-6 mb-10 flex-wrap">
-        {hrTabs.map((tab) => (
-          <button
-            key={tab.key}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all ${
-              activeTab === tab.key
-                ? "bg-violet-700 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
-            onClick={() => setActiveTab(tab.key)}
-          >
-            <span className={`text-xl transition-all ${activeTab === tab.key ? "text-white" : "text-violet-700"}`}>
-              {tab.icon}
-            </span>
-            {tab.title}
-          </button>
-        ))}
+      {/* === Tabs === */}
+      <div className="flex flex-col md:flex-row justify-center gap-6 mb-12 text-center">
+        {hrTabs.map((tab) => {
+          const Icon = tab.icon;
+          const isActive = activeTab === tab.key;
+
+          return (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`flex flex-col items-center border px-20 py-4 rounded-xl transition-all duration-300 ${
+                isActive
+                  ? "bg-blue-600 text-white shadow-xl"
+                  : "bg-white text-gray-800 hover:bg-violet-50"
+              }`}
+            >
+              <Icon className={`text-3xl mb-2 transition ${isActive ? "text-white" : "text-blue-600"}`} />
+              <span className="font-semibold">{tab.title}</span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Animated Tab Content */}
-      {tabContent && (
+      {/* === Tab Content === */}
+      <AnimatePresence mode="wait">
         <motion.div
-          key={activeTab}
+          key={activeContent.key}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="grid md:grid-cols-2 gap-10 items-center"
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.4 }}
+          className="grid md:grid-cols-2 gap-12 items-center"
         >
+          {/* Image */}
+          <motion.img
+            src={activeContent.content.image}
+            alt={activeContent.content.heading}
+            className="rounded-xl shadow-lg w-full "
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          />
+
+          {/* Text */}
           <div>
-            <h2 className="text-2xl font-bold text-violet-700 mb-4">{tabContent.heading}</h2>
-            <p className="text-gray-700 mb-6 leading-7">{tabContent.text}</p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              {tabContent.list.map((item, idx) => (
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{activeContent.content.heading}</h2>
+            <p className="text-gray-700 mb-6 leading-7">{activeContent.content.text}</p>
+            <ul className="list-disc list-inside text-gray-600 space-y-2">
+              {activeContent.content.list.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>
           </div>
-          <div className="overflow-hidden rounded-xl shadow-lg">
-            <img
-              src={tabContent.image}
-              alt={tabContent.heading}
-              className="w-full h-96 object-cover"
-            />
-          </div>
         </motion.div>
-      )}
-    </section>
+      </AnimatePresence>
+    </div>
   );
 };
 
