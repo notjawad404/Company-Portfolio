@@ -30,7 +30,7 @@ const Contact = () => {
 
     return (
         <section className="pt-28 pb-16 px-4 container mx-auto">
-            <h1 className="text-4xl font-bold text-center text-violet-700 mb-12">
+            <h1 className="text-4xl font-bold text-center text-blue-600 mb-12">
                 Contact Us
             </h1>
 
@@ -38,10 +38,10 @@ const Contact = () => {
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
   {/* Office Phone */}
   <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaPhoneAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <FaPhoneAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
     <h4 className="text-xl font-semibold mb-1">Office</h4>
     <p className="text-gray-600">
-      <a href="tel:+923445927011" className="hover:text-violet-600">
+      <a href="tel:+923445927011" className="hover:text-blue-600">
         +92 344 5927011
       </a>
     </p>
@@ -49,10 +49,10 @@ const Contact = () => {
 
   {/* Mobile Phone */}
   <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaMobileAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <FaMobileAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
     <h4 className="text-xl font-semibold mb-1">Mobile</h4>
     <p className="text-gray-600">
-      <a href="tel:+923135009276" className="hover:text-violet-600">
+      <a href="tel:+923135009276" className="hover:text-blue-600">
         +92 313 5009276
       </a>
     </p>
@@ -60,10 +60,10 @@ const Contact = () => {
 
   {/* Email */}
   <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaEnvelope className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <FaEnvelope className="text-3xl text-blue-600 mb-2 mx-auto" />
     <h4 className="text-xl font-semibold mb-1">Email</h4>
     <p className="text-gray-600">
-      <a href="mailto:info@triagesolutions.org" className="hover:text-violet-600">
+      <a href="mailto:info@triagesolutions.org" className="hover:text-blue-600">
         info@triagesolutions.org
       </a>
     </p>
@@ -71,7 +71,7 @@ const Contact = () => {
 
   {/* Location */}
   <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaMapMarkerAlt className="text-3xl text-violet-700 mb-2 mx-auto" />
+    <FaMapMarkerAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
     <h4 className="text-xl font-semibold mb-1">Location</h4>
     <p className="text-gray-600">Islamabad, Pakistan</p>
   </div>
@@ -82,7 +82,7 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-10">
                 {/* Form */}
                 <form ref={form} onSubmit={sendEmail} className="bg-white p-8 shadow-lg rounded-lg">
-                    <h2 className="text-2xl font-semibold mb-6 text-violet-700">Send Us a Message</h2>
+                    <h2 className="text-2xl font-semibold mb-6 text-blue-600">Send Us a Message</h2>
 
                     <div className="mb-4">
                         <label className="block mb-1 text-gray-600 font-medium">Name</label>
@@ -126,7 +126,7 @@ const Contact = () => {
 
                     <button
                         type="submit"
-                        className="bg-violet-700 text-white px-6 py-2 rounded-md hover:bg-violet-800 transition"
+                        className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-violet-800 transition"
                     >
                         Send Message
                     </button>
