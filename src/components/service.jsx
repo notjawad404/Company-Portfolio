@@ -6,6 +6,7 @@ import {
   FaMoneyCheckAlt,
   FaUserTie,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Animation variant
 const fadeIn = {
@@ -65,12 +66,12 @@ const Intro = () => (
         cost-effective outsourcing and HR management services tailored to scale
         your business.
       </p>
-      <a
-        href="/services"
+      <Link
+        to="/services"
         className="inline-block bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition"
       >
         Explore Services
-      </a>
+      </Link>
     </motion.div>
   </motion.div>
 );

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { CgInstagram } from "react-icons/cg";
 import { AiFillTwitterSquare, AiFillFacebook } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -39,14 +40,14 @@ class Footer extends Component {
             <h3 className="text-xl font-semibold text-violet-700 mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/services/outsourcing" className="hover:text-violet-600">
+                <Link to="/services/outsourcing" className="hover:text-violet-600">
                   Outsourcing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/hr-management" className="hover:text-violet-600">
+                <Link to="/services/hr-management" className="hover:text-violet-600">
                   HR Management
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

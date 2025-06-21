@@ -3,6 +3,7 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { motion } from "framer-motion";
 import "react-circular-progressbar/dist/styles.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [percentage] = useState(90); // Updated value for business growth
@@ -28,12 +29,12 @@ const About = () => {
             focus on innovation and efficiency, we deliver results that matter.
           </p>
           <div className="flex flex-wrap gap-4 items-center sm:justify-start justify-center">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="bg-blue-600 text-white px-6 py-2 rounded-md shadow hover:bg-blue-700 transition"
             >
               Get In Touch
-            </a>
+            </Link>
             <a
               href="#services"
               className="flex items-center text-blue-600 font-medium hover:underline"
