@@ -17,15 +17,19 @@ const Navbar = () => {
   };
 
   const navLinkClasses = ({ isActive }) =>
-    `capitalize font-medium text-sm transition-colors duration-200 ${
-      isActive ? "text-violet-300 lg:text-violet-700" : "text-white lg:text-black hover:text-violet-400 lg:hover:text-violet-700"
+    `capitalize font-medium text-sm transition-colors duration-200 pt-3 ${
+      isActive
+        ? "text-violet-300 lg:text-violet-700"
+        : "text-white lg:text-black hover:text-violet-400 lg:hover:text-violet-700"
     }`;
 
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-violet-700"><Link to="/">Triage Solutions</Link></div>
+        <div className="text-xl font-bold text-violet-700">
+          <Link to="/">Triage Solutions</Link>
+        </div>
 
         {/* Menu Button (Mobile) */}
         <div className="lg:hidden">
@@ -53,24 +57,17 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-        </div>
 
-        {/* Quote Button (Desktop) */}
-        <div className="hidden lg:flex">
-          <button className="ml-4 bg-violet-700 text-white px-5 py-2 rounded-full hover:bg-violet-600 transition-all text-sm">
+          {/* Get a Quote Button (Visible on all sizes now) */}
+          <a
+            href="mailto:info@triagesolutions.org"
+            className="mt-4 lg:mt-0 bg-white lg:bg-violet-700 text-violet-700 lg:text-white border border-violet-700 lg:border-transparent px-5 py-2 rounded-full text-center hover:bg-violet-100 lg:hover:bg-violet-600 transition-all text-sm"
+            onClick={() => setShowLinks(false)}
+          >
             Get a Quote
-          </button>
+          </a>
         </div>
       </div>
-
-      {/* Quote Button (Mobile) */}
-      {showLinks && (
-        <div className="block lg:hidden px-4 pb-4">
-          <button className="w-full bg-white text-violet-700 border border-violet-700 px-5 py-2 rounded-full hover:bg-violet-100 transition-all text-sm">
-            Get a Quote
-          </button>
-        </div>
-      )}
     </nav>
   );
 };
