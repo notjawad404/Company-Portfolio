@@ -1,0 +1,12 @@
+# robots.txt for triagesolutions.org
+
+User-agent: *
+Allow: /
+
+# Block internal development paths (optional, if you have any)
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://triagesolutions.org/sitemap.xml
