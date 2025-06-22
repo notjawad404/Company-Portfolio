@@ -25,22 +25,23 @@ const fadeIn = {
 const services = [
   {
     title: "Outsourcing",
+    path: "/services/outsourcing",
     subServices: [
-      { name: "Operations Management", icon: <FaChartLine /> },
-      { name: "Sales", icon: <FaUsers /> },
-      { name: "Customer Support", icon: <FaHeadset /> },
+      { name: "Operations Management", icon: <FaChartLine />, slug: "operations" },
+      { name: "Sales", icon: <FaUsers />, slug: "sales" },
+      { name: "Customer Support", icon: <FaHeadset />, slug: "support" },
     ],
   },
   {
     title: "HR Management",
+    path: "/services/hr-management",
     subServices: [
-      { name: "Payroll", icon: <FaMoneyCheckAlt /> },
-      { name: "Recruitment", icon: <FaUserTie /> },
+      { name: "Payroll", icon: <FaMoneyCheckAlt />, slug: "payroll" },
+      { name: "Recruitment", icon: <FaUserTie />, slug: "recruitment" },
     ],
   },
 ];
 
-// Intro Section
 const Intro = () => (
   <motion.div
     initial="hidden"
@@ -76,7 +77,6 @@ const Intro = () => (
   </motion.div>
 );
 
-// Services Section
 const ServicesSection = () => (
   <motion.div
     initial="hidden"
@@ -100,17 +100,17 @@ const ServicesSection = () => (
           <h3 className="text-2xl font-semibold mb-6">{service.title}</h3>
           <div className="grid sm:grid-cols-2 gap-6">
             {service.subServices.map((sub, i) => (
-              <motion.div
+              <Link
                 key={i}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white text-gray-800 p-5 rounded-xl shadow-md flex flex-col items-center text-center transition"
+                to={`${service.path}?tab=${sub.slug}`}
+                className="bg-white text-gray-800 p-5 rounded-xl shadow-md flex flex-col items-center text-center transition hover:scale-105"
               >
                 <div className="text-blue-600 text-3xl mb-3">{sub.icon}</div>
                 <h4 className="font-semibold">{sub.name}</h4>
                 <p className="text-sm mt-2">
                   Effective {sub.name.toLowerCase()} service to support your growth.
                 </p>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </motion.div>
@@ -119,7 +119,6 @@ const ServicesSection = () => (
   </motion.div>
 );
 
-// Final Wrapper
 const Service = () => {
   return (
     <section id="services" className="max-w-7xl mx-auto px-4 py-16">

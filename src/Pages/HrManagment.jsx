@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaUserTie, FaMoneyCheckAlt, FaUsers } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,7 +10,7 @@ const hrTabs = [
     icon: FaMoneyCheckAlt,
     content: {
       heading: "HR/Payroll Management Services",
-      text: "Streamline your human resources operations with our HR and payroll management services. We offer employee record management, payroll processing, compliance with labor laws, and benefits administration, all tailored to your organization's needs.",
+      text: "Streamline your human resources operations...",
       list: [
         "Accurate and timely payroll processing",
         "Employee data management",
@@ -26,7 +27,7 @@ const hrTabs = [
     icon: FaUsers,
     content: {
       heading: "Recruitment & Talent Acquisition",
-      text: "Build a high-performing team with our expert recruitment services. We provide end-to-end hiring support including sourcing, screening, interviewing, and onboarding top talent tailored to your company’s goals.",
+      text: "Build a high-performing team with our expert recruitment services...",
       list: [
         "Job posting and outreach",
         "Resume screening",
@@ -40,12 +41,24 @@ const hrTabs = [
 ];
 
 const HRManagement = () => {
-  const [activeTab, setActiveTab] = useState("payroll");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryTab = new URLSearchParams(location.search).get("tab");
+  const defaultTab = hrTabs.find(tab => tab.key === queryTab) ? queryTab : "payroll";
+
+  const [activeTab, setActiveTab] = useState(defaultTab);
   const activeContent = hrTabs.find((tab) => tab.key === activeTab);
+
+  // Update URL when tab changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    params.set("tab", activeTab);
+    navigate({ search: params.toString() }, { replace: true });
+  }, [activeTab]);
 
   return (
     <div className="container mx-auto px-4 py-16">
-      {/* === Page Header === */}
+      {/* Page Header */}
       <div className="text-center mb-14">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">HR Management Services</h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -53,16 +66,14 @@ const HRManagement = () => {
         </p>
       </div>
 
-      {/* === Tabs === */}
+      {/* Tabs */}
       <div className="flex flex-col md:flex-row justify-center gap-6 mb-12 text-center">
-        {hrTabs.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.key;
-
+        {hrTabs.map(({ key, title, icon: Icon }) => {
+          const isActive = activeTab === key;
           return (
             <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
+              key={key}
+              onClick={() => setActiveTab(key)}
               className={`flex flex-col items-center border px-20 py-4 rounded-xl transition-all duration-300 ${
                 isActive
                   ? "bg-blue-600 text-white shadow-xl"
@@ -70,13 +81,13 @@ const HRManagement = () => {
               }`}
             >
               <Icon className={`text-3xl mb-2 transition ${isActive ? "text-white" : "text-blue-600"}`} />
-              <span className="font-semibold">{tab.title}</span>
+              <span className="font-semibold">{title}</span>
             </button>
           );
         })}
       </div>
 
-      {/* === Tab Content === */}
+      {/* Tab Content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeContent.key}
@@ -86,17 +97,15 @@ const HRManagement = () => {
           transition={{ duration: 0.4 }}
           className="grid md:grid-cols-2 gap-12 items-center"
         >
-          {/* Image */}
           <motion.img
             src={activeContent.content.image}
             alt={activeContent.content.heading}
-            className="rounded-xl shadow-lg w-full "
+            className="rounded-xl shadow-lg w-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           />
 
-          {/* Text */}
           <div>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">{activeContent.content.heading}</h2>
             <p className="text-gray-700 mb-6 leading-7">{activeContent.content.text}</p>
