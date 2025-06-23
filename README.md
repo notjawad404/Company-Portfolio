@@ -6,7 +6,7 @@ This repository includes complete SEO setup with dynamic meta tags, structured d
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live
 
 🔗 [https://triagesolutions.org](https://triagesolutions.org)
 
