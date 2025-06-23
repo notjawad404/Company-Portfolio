@@ -1,31 +1,28 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { FaPhoneAlt, FaMobileAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
-    const form = useRef();
     const [messageSent, setMessageSent] = useState(false);
 
-    const sendEmail = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        emailjs
-            .sendForm(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-                e.target,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-            )
-            .then(
-                (result) => {
-                    console.log(result.text);
-                    setMessageSent(true);
-                    form.current.reset();
-                },
-                (error) => {
-                    console.log(error.text);
-                }
-            );
+        const formData = new FormData(e.target);
+        formData.append("access_key", "79aaa501-bade-43cd-9921-210a26514a98");
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            setMessageSent(true);
+            e.target.reset();
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     return (
@@ -34,61 +31,56 @@ const Contact = () => {
                 Contact Us
             </h1>
 
-{/* Top Contact Info */}
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
-  {/* Office Phone */}
-  <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaPhoneAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
-    <h4 className="text-xl font-semibold mb-1">Office</h4>
-    <p className="text-gray-600">
-      <a href="tel:+923445927011" className="hover:text-blue-600">
-        +92 344 5927011
-      </a>
-    </p>
-  </div>
+            {/* Top Contact Info */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
+                <div className="bg-white shadow-md p-6 rounded-lg">
+                    <FaPhoneAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
+                    <h4 className="text-xl font-semibold mb-1">Office</h4>
+                    <p className="text-gray-600">
+                        <a href="tel:+923445927011" className="hover:text-blue-600">
+                            +92 344 5927011
+                        </a>
+                    </p>
+                </div>
 
-  {/* Mobile Phone */}
-  <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaMobileAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
-    <h4 className="text-xl font-semibold mb-1">Mobile</h4>
-    <p className="text-gray-600">
-      <a href="tel:+923135009276" className="hover:text-blue-600">
-        +92 313 5009276
-      </a>
-    </p>
-  </div>
+                <div className="bg-white shadow-md p-6 rounded-lg">
+                    <FaMobileAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
+                    <h4 className="text-xl font-semibold mb-1">Mobile</h4>
+                    <p className="text-gray-600">
+                        <a href="tel:+923135009276" className="hover:text-blue-600">
+                            +92 313 5009276
+                        </a>
+                    </p>
+                </div>
 
-  {/* Email */}
-  <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaEnvelope className="text-3xl text-blue-600 mb-2 mx-auto" />
-    <h4 className="text-xl font-semibold mb-1">Email</h4>
-    <p className="text-gray-600">
-      <a href="mailto:info@triagesolutions.org" className="hover:text-blue-600">
-        info@triagesolutions.org
-      </a>
-    </p>
-  </div>
+                <div className="bg-white shadow-md p-6 rounded-lg">
+                    <FaEnvelope className="text-3xl text-blue-600 mb-2 mx-auto" />
+                    <h4 className="text-xl font-semibold mb-1">Email</h4>
+                    <p className="text-gray-600">
+                        <a href="mailto:info@triagesolutions.org" className="hover:text-blue-600">
+                            info@triagesolutions.org
+                        </a>
+                    </p>
+                </div>
 
-  {/* Location */}
-  <div className="bg-white shadow-md p-6 rounded-lg">
-    <FaMapMarkerAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
-    <h4 className="text-xl font-semibold mb-1">Location</h4>
-    <p className="text-gray-600">Islamabad, Pakistan</p>
-  </div>
-</div>
-
+                <div className="bg-white shadow-md p-6 rounded-lg">
+                    <FaMapMarkerAlt className="text-3xl text-blue-600 mb-2 mx-auto" />
+                    <h4 className="text-xl font-semibold mb-1">Location</h4>
+                    <p className="text-gray-600">Islamabad, Pakistan</p>
+                </div>
+            </div>
 
             {/* Contact Form and Map */}
             <div className="grid md:grid-cols-2 gap-10">
                 {/* Form */}
-                <form ref={form} onSubmit={sendEmail} className="bg-white p-8 shadow-lg rounded-lg">
+                <form onSubmit={handleSubmit} className="bg-white p-8 shadow-lg rounded-lg">
                     <h2 className="text-2xl font-semibold mb-6 text-blue-600">Send Us a Message</h2>
 
                     <div className="mb-4">
                         <label className="block mb-1 text-gray-600 font-medium">Name</label>
                         <input
                             type="text"
-                            name="user_name"
+                            name="name"
                             required
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-400"
                         />
@@ -98,7 +90,7 @@ const Contact = () => {
                         <label className="block mb-1 text-gray-600 font-medium">Email</label>
                         <input
                             type="email"
-                            name="user_email"
+                            name="email"
                             required
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-400"
                         />
@@ -148,9 +140,6 @@ const Contact = () => {
                         referrerPolicy="no-referrer-when-downgrade"
                         className="w-full h-full border-0"
                     />
-
-
-
                 </div>
             </div>
         </section>
