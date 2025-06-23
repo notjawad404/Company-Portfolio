@@ -21,7 +21,7 @@ const outsourcingTabs = [
     content: {
       desc: "Boost your revenue with our results-driven sales services...",
       highlights: ["Sales funnel", "Lead generation", "CRM management", "Tracking dashboards"],
-      image: "https://media.istockphoto.com/id/950986656/photo/business-finance-accounting-contract-advisor-investment-consulting-marketing-plan-for-the.jpg"
+      image: "https://cdn.prod.website-files.com/62722382edf1ccb5a513cf38/656888e56e0348ed1f76b1b8_ooo.png"
     }
   },
   {
