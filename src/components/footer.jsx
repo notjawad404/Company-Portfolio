@@ -2,6 +2,7 @@ import { Component } from "react";
 import { CgInstagram } from "react-icons/cg";
 import { AiFillTwitterSquare, AiFillFacebook } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import logo from "../assets/logowithoutbg.png"
 
 class Footer extends Component {
   render() {
@@ -10,7 +11,10 @@ class Footer extends Component {
         <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3 text-gray-700">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold text-violet-700 mb-4">Triage Solutions</h3>
+                    <div className="text-xl font-bold text-violet-700 flex flex-row">
+                      <img src={logo} alt="logo" className="h-10 w-10"/>
+                      <Link to="/" className="py-2">Triage Solutions</Link>
+                    </div>
             <p className="mb-4">
               We are committed to delivering innovative solutions in outsourcing
               and HR management, helping your business grow through smart and

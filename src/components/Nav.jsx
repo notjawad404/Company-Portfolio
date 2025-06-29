@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
+import logo from "../../src/assets/logowithoutbg.png";
 
 const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -27,8 +28,9 @@ const Nav = () => {
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-violet-700">
-          <Link to="/">Triage Solutions</Link>
+        <div className="text-xl font-bold text-violet-700 flex flex-row">
+          <img src={logo} alt="logo" className="h-10 w-10"/>
+          <Link to="/" className="py-2">Triage Solutions</Link>
         </div>
 
         {/* Menu Button (Mobile) */}
